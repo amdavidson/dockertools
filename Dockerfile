@@ -13,6 +13,8 @@ RUN git clone https://github.com/amdavidson/dotfiles.git /home/amdavidson/.dotfi
     cd /home/amdavidson/.dotfiles && \
     stow -t /home/amdavidson zsh git vim tmux
 
+RUN vim +"PlugInstall --sync" +qa
+
 CMD ["/usr/bin/zsh"]
 
 
