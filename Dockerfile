@@ -2,16 +2,11 @@ FROM fedora:rawhide
 
 RUN dnf install -y zsh git vim tmux stow && dnf clean all
 
-RUN mkdir /tmp/home && \
-    useradd amdavidson -s /usr/bin/zsh -m -k /tmp/home && \
-    rm -r /tmp/home
+WORKDIR /root
 
-USER amdavidson
-WORKDIR /home/amdavidson
-
-RUN git clone https://github.com/amdavidson/dotfiles.git /home/amdavidson/.dotfiles && \
-    cd /home/amdavidson/.dotfiles && \
-    stow -t /home/amdavidson zsh git vim tmux
+RUN git clone https://github.com/amdavidson/dotfiles.git /root/.dotfiles && \
+    cd /root/.dotfiles && \
+    stow -t /root zsh git vim tmux
 
 RUN vim +"PlugInstall --sync" +qa
 
