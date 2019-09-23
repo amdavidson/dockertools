@@ -1,6 +1,6 @@
 FROM fedora:30
 
-RUN dnf install -y zsh git vim tmux stow && dnf clean all
+RUN dnf install -y zsh git neovim tmux stow && dnf clean all
 
 WORKDIR /root
 
