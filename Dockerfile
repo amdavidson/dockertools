@@ -1,4 +1,4 @@
-FROM fedora:rawhide
+FROM fedora:30
 
 RUN dnf install -y zsh git vim tmux stow && dnf clean all
 
