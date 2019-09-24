@@ -1,6 +1,6 @@
 # Docker Tools 
 
-A very simple docker container based on `fedora:rawhide` that installs a few programs and downloads my personal `.dotfiles` to allow me to run a container with a familiar environment on a foreign or temporary system.
+A very simple docker container based on `fedora` that installs a few programs and downloads my personal `.dotfiles` to allow me to run a container with a familiar environment on a foreign or temporary system.
 
 ## Running Docker Tools
 
