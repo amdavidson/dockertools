@@ -1,6 +1,6 @@
-FROM fedora:30
+FROM debian:latest
 
-RUN dnf install -y zsh git neovim tmux stow && dnf clean all
+RUN apt-get update && apt-get install -y zsh git neovim tmux stow && apt-get clean
 
 WORKDIR /root
 
