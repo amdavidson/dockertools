@@ -1,14 +1,16 @@
-FROM debian:latest
+FROM fedora:latest
 
-RUN apt-get update && apt-get install -y zsh git neovim tmux stow && apt-get clean
+RUN dnf install -y zsh git neovim tmux stow python3-pip \
+&& pip3 install pynvim \
+&& dnf clean all
 
 WORKDIR /root
 
-RUN git clone https://github.com/amdavidson/dotfiles.git /root/.dotfiles && \
-    cd /root/.dotfiles && \
-    stow -t /root zsh git vim tmux
+RUN git clone https://github.com/amdavidson/dotfiles.git /root/.dotfiles \
+&& cd /root/.dotfiles \
+&& stow -t /root zsh git vim tmux
 
-RUN vim +"PlugInstall --sync" +qa
+RUN nvim --headless +"PlugInstall --sync" +qa
 
 CMD ["/usr/bin/zsh"]
 
